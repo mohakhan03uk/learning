@@ -20,9 +20,16 @@
             <h1>Super Admin Dashboard</h1>
         </header>
         <h2>Manage CROs</h2>
-        <div class="actions">
-            <button class="add-btn" onclick="toggleForm()">Add New CRO</button>
-        </div>
+     <div class="actions">
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="Search CROs..."
+        onkeyup="filterTable()"
+        class="search-box"
+    />
+    <button class="add-btn" onclick="toggleForm()">Add New CRO</button>
+</div>
         <div class="form-container" id="formContainer">
             <div class="form-group">
                 <label for="croName">CRO's Name:</label>
