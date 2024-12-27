@@ -1,14 +1,14 @@
 const croData = [
     { name: "CRO1", person: "John Doe", email: "john@example.com", status: true },
     { name: "CRO2", person: "Jane Smith", email: "jane@example.com", status: false },
-    { name: "CRO3", person: "Smith", email: "jane@example.com", status: false },
-    { name: "CRO4", person: "xyz Jane Smith", email: "jane@example.com", status: false },
-    { name: "CRO5", person: "Jane fff Smith", email: "jane@example.com", status: false },
-    { name: "CRO1", person: "John Doe", email: "john@example.com", status: true },
+	{ name: "CRO3", person: "Smith", email: "jane@example.com", status: false },
+	{ name: "CRO4", person: "xyz Jane Smith", email: "jane@example.com", status: false },
+	{ name: "CRO5", person: "Jane fff Smith", email: "jane@example.com", status: false },
+	{ name: "CRO1", person: "John Doe", email: "john@example.com", status: true },
     { name: "CRO2", person: "Jane Smith", email: "jane@example.com", status: false },
-    { name: "CRO3", person: "Smith", email: "jane@example.com", status: false },
-    { name: "CRO4", person: "xyz Jane Smith", email: "jane@example.com", status: false },
-    { name: "CRO5", person: "Jane fff Smith", email: "jane@example.com", status: false },
+	{ name: "CRO3", person: "Smith", email: "jane@example.com", status: false },
+	{ name: "CRO4", person: "xyz Jane Smith", email: "jane@example.com", status: false },
+	{ name: "CRO5", person: "Jane fff Smith", email: "jane@example.com", status: false },
 ];
 
 function loadTable() {
