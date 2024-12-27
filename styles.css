@@ -267,5 +267,11 @@ button {
     border-bottom: 0;
   }
 }
-
+table tr:nth-child(even){
+	background: #ccc;
 }
+table tr:hover td{
+	background: #839192;
+	color: #000;
+	transition: all 0.3s ease-in;
+	cusrsor: pointer;
