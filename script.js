@@ -82,7 +82,18 @@ function showToast(message) {
     toast.className = 'toast show';
     setTimeout(() => {
         toast.className = 'toast';
-    }, 2000);
+    }, 3000);
+}
+
+function filterTable() {
+    const query = document.getElementById('searchBox').value.toLowerCase();
+    const rows = document.querySelectorAll('#croTable tr');
+
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+        row.style.display = rowText.includes(query) ? '' : 'none';
+    });
 }
 
 window.onload = loadTable;
