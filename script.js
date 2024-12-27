@@ -35,14 +35,30 @@ function loadTable() {
     });
 }
 
-function toggleStatus(index) {
-    croData[index].status = !croData[index].status;
-    loadTable();
-    showToast(`CRO ${croData[index].name} is now ${croData[index].status ? 'Active' : 'Inactive'}`);
-}
+let editingIndex = null;
 
-function toggleForm() {
+function toggleForm(action = 'add', index = null) {
     const formContainer = document.getElementById('formContainer');
+    const formTitle = document.getElementById('formTitle');
+    const saveButton = document.querySelector('.save-btn');
+
+    if (action === 'edit') {
+        editingIndex = index;
+        const cro = croData[index];
+        document.getElementById('croName').value = cro.name;
+        document.getElementById('personName').value = cro.person;
+        document.getElementById('email').value = cro.email;
+        formTitle.textContent = 'Edit CRO';
+        saveButton.textContent = 'Update';
+    } else {
+        editingIndex = null;
+        document.getElementById('croName').value = '';
+        document.getElementById('personName').value = '';
+        document.getElementById('email').value = '';
+        formTitle.textContent = 'Add New CRO';
+        saveButton.textContent = 'Save';
+    }
+
     formContainer.style.display = formContainer.style.display === 'block' ? 'none' : 'block';
 }
 
@@ -52,37 +68,31 @@ function saveCRO() {
     const email = document.getElementById('email').value;
 
     if (name && person && email) {
-        croData.push({ name, person, email, status: true });
+        if (editingIndex !== null) {
+            croData[editingIndex] = { name, person, email, status: croData[editingIndex].status };
+            showToast(`CRO ${name} updated successfully.`);
+        } else {
+            croData.push({ name, person, email, status: true });
+            showToast(`CRO ${name} added successfully.`);
+        }
         loadTable();
         toggleForm();
-        showToast(`CRO ${name} added successfully.`);
     } else {
         showToast('Please fill in all fields before saving.');
     }
 }
 
 function editCRO(index) {
-    const cro = croData[index];
-    document.getElementById('croName').value = cro.name;
-    document.getElementById('personName').value = cro.person;
-    document.getElementById('email').value = cro.email;
-
-    toggleForm();
-
-    const saveButton = document.querySelector('.save-btn');
-    saveButton.onclick = function () {
-        croData[index] = {
-            name: document.getElementById('croName').value,
-            person: document.getElementById('personName').value,
-            email: document.getElementById('email').value,
-            status: cro.status
-        };
-        loadTable();
-        toggleForm();
-        showToast(`CRO ${croData[index].name} updated successfully.`);
-        saveButton.onclick = saveCRO; // Restore original save functionality
-    };
+    toggleForm('edit', index);
 }
+
+
+function toggleStatus(index) {
+    croData[index].status = !croData[index].status;
+    loadTable();
+    showToast(`CRO ${croData[index].name} is now ${croData[index].status ? 'Active' : 'Inactive'}`);
+}
+
 
 function showToast(message) {
     const toast = document.getElementById('toast');
