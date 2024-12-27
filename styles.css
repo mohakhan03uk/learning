@@ -173,6 +173,9 @@ button {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    z-index: 1000; /* Ensure it is above other elements */
+    pointer-events: none; /* Prevent it from blocking clicks */
+}
 }
 
 .toast.show {
