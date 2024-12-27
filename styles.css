@@ -163,7 +163,7 @@ button {
 }
 
 .toast {
-    position: fixed;
+    position: absolute;
     bottom: 20px;
     right: 20px;
     background: #007BFF;
@@ -173,12 +173,31 @@ button {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    pointer-events: none; /* Prevent it from blocking clicks */
-}
+	pointer-events: none; /* Prevent blocking */
 }
 
 .toast.show {
     opacity: 1;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.search-box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.add-btn {
+    flex-shrink: 0;
 }
 
 @media (max-width: 1300px) {
@@ -204,9 +223,6 @@ button {
         width: 100%;
     }
 	
-	  table {
-    border: 0;
-  }
 
   table caption {
     font-size: 1.3em;
