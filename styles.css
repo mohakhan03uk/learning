@@ -155,14 +155,54 @@ button {
     cursor: pointer;
 }
 
+/* Add New CRO Button */
 .add-btn {
-    background: #28a745;
+    background-color: #28a745;
     color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.toggle-btn {
-    background: #ffc107;
+.add-btn:hover {
+    background-color: #218838;
 }
+
+/* Edit Button */
+.edit-btn {
+    background-color: #17a2b8;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: #138496;
+}
+
+/* Toggle Status Button */
+.toggle-btn {
+    background-color: #ffc107;
+    color: black;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+    background-color: #e0a800;
+}
+
 
 .edit-btn {
     background: #17a2b8;
