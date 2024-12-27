@@ -15,6 +15,8 @@ function loadTable() {
                 <td>${cro.status ? "Active" : "Inactive"}</td>
                 <td>
                     <button class="edit-btn" onclick="editCRO(${index})">Edit</button>
+				</td>
+				<td>
                     <button class="toggle-btn" onclick="toggleStatus(${index})">
                         ${cro.status ? "Deactivate" : "Activate"}
                     </button>
