@@ -82,7 +82,7 @@ function showToast(message) {
     toast.className = 'toast show';
     setTimeout(() => {
         toast.className = 'toast';
-    }, 3000);
+    }, 2000);
 }
 
 window.onload = loadTable;
