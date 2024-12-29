@@ -37,8 +37,10 @@ function loadTable() {
 
 let editingIndex = null;
 
+
+
 function toggleForm(action = 'add', index = null) {
-    const formContainer = document.getElementById('formContainer');
+    const formModal = document.getElementById('formModal');
     const formTitle = document.getElementById('formTitle');
     const saveButton = document.querySelector('.save-btn');
 
@@ -47,20 +49,34 @@ function toggleForm(action = 'add', index = null) {
         const site = siteData[index];
         document.getElementById('siteCode').value = site.siteCode;
         document.getElementById('siteName').value = site.siteName;
-        document.getElementById('email').value = site.email;
+        document.getElementById('legalSiteName').value = site.legalSiteName || '';
+        document.getElementById('address1').value = site.address1 || '';
+        document.getElementById('address2').value = site.address2 || '';
+        document.getElementById('postCode').value = site.postCode || '';
+        document.getElementById('officeTel').value = site.officeTel || '';
+        document.getElementById('extension').value = site.extension || '';
+        document.getElementById('mobile').value = site.mobile || '';
+        document.getElementById('email').value = site.email || '';
+        document.getElementById('website').value = site.website || '';
+        document.getElementById('notes').value = site.notes || '';
         formTitle.textContent = 'Edit Site';
         saveButton.textContent = 'Update';
     } else {
         editingIndex = null;
-        document.getElementById('siteCode').value = '';
-        document.getElementById('siteName').value = '';
-        document.getElementById('email').value = '';
+        document.getElementById('siteForm').reset();
         formTitle.textContent = 'Add New Site';
         saveButton.textContent = 'Save';
     }
 
-    formContainer.style.display = formContainer.style.display === 'block' ? 'none' : 'block';
+    formModal.style.display = 'flex'; // Show the modal
 }
+
+function closeModal() {
+    const formModal = document.getElementById('formModal');
+    formModal.style.display = 'none'; // Hide the modal
+}
+
+
 
 function saveSITE() {
     const siteCode = document.getElementById('siteCode').value;
@@ -76,7 +92,8 @@ function saveSITE() {
             showToast(`Site ${siteName} added successfully.`);
         }
         loadTable();
-        toggleForm();
+        //toggleForm();
+      closeModal();
     } else {
         showToast('Please fill in all fields before saving.');
     }
