@@ -67,7 +67,7 @@ function saveSITE() {
     const siteName = document.getElementById('siteName').value;
     const email = document.getElementById('email').value;
 
-    if (siteCode && SiteName && email) {
+    if (siteCode && siteName && email) {
         if (editingIndex !== null) {
             siteData[editingIndex] = { siteCode, siteName, email, status: siteData[editingIndex].status };
             showToast(`Site ${siteName} updated successfully.`);
