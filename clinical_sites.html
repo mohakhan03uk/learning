@@ -19,7 +19,7 @@
         <header>
             <h1>Super Admin Dashboard</h1>
         </header>
-        <h2>Manage Clients</h2>
+        <h2>Manage Clinical Sites</h2>
      <div class="actions">
     <input
         type="text"
@@ -28,17 +28,17 @@
         onkeyup="filterTable()"
         class="search-box"
     />
-    <button class="add-btn" onclick="toggleForm()">+ Add New Client</button>
+    <button class="add-btn" onclick="toggleForm()">+ Add New Site</button>
 </div>
         <div class="form-container" id="formContainer">
-    <h3 id="formTitle">Add New Clients</h3>
+    <h3 id="formTitle">Add New Sites</h3>
     <div class="form-group">
-        <label for="croName">Client's Name:</label>
-        <input type="text" id="croName" placeholder="Enter Client's name">
+        <label for="siteCode">Code:</label>
+        <input type="text" id="siteCode" placeholder="Enter Site Code">
     </div>
     <div class="form-group">
-        <label for="personName">Name:</label>
-        <input type="text" id="personName" placeholder="Enter name">
+        <label for="siteName">Name:</label>
+        <input type="text" id="siteName" placeholder="Enter Site Name">
     </div>
     <div class="form-group">
         <label for="email">Email ID:</label>
@@ -53,8 +53,8 @@
         <table class="tbl">
             <thead>
                 <tr>
-                    <th>Clients's Name</th>
-                    <th>Name</th>
+                    <th>Site Code</th>
+                    <th>SiteName</th>
                     <th>Email ID</th>
                     <th class="status">Status</th>
                     <th colspan=2 class="action">Action</th>
