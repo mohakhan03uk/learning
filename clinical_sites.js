@@ -50,21 +50,22 @@ function toggleForm(action = 'add', index = null) {
     if (action === 'edit') {
         editingIndex = index;
         const cro = croData[index];
-        document.getElementById('croName').value = cro.name;
-        document.getElementById('personName').value = cro.person;
+        document.getElementById('siteCode').value = cro.name;
+        document.getElementById('siteName').value = cro.person;
         document.getElementById('email').value = cro.email;
         formTitle.textContent = 'Edit CRO';
         saveButton.textContent = 'Update';
     } else {
         editingIndex = null;
-        document.getElementById('croName').value = '';
-        document.getElementById('personName').value = '';
+        document.getElementById('siteCode').value = '';
+        document.getElementById('siteName').value = '';
         document.getElementById('email').value = '';
         formTitle.textContent = 'Add New CRO';
         saveButton.textContent = 'Save';
     }
 
-    formContainer.style.display = formContainer.style.display === 'block' ? 'none' : 'block';
+    formContainer.style.display = 'block';
+    window.scrollTo(0, 0); // Scroll to the top of the page
 }
 
 function saveCRO() {
