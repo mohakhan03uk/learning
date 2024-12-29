@@ -21,15 +21,15 @@ function loadTable() {
                 <td data-label="Name:">${cro.person}</td>
                 <td data-label="Email:">${cro.email}</td>
                 <td data-label="Status:">${cro.status ? "Active" : "Inactive"}</td>
-                <td class="edit-col" data-label="Edit:">
+                <td class="edit-col">
                     <button class="edit-btn" onclick="editCRO(${index})">Edit</button>
 				</td>
-				<td class="toggle-status-col" data-label="Change Status:">
+				<td class="toggle-status-col">
                     <button class="toggle-btn" onclick="toggleStatus(${index})">
                         ${cro.status ? "Deactivate" : "Activate"}
                     </button>
                 </td >
-        <td class="show-col" data-label="Show:">
+        <td class="show-col">
                     <button class="show-btn" onclick="toggleStatus(${index})">
                         Show
                     </button>
@@ -50,22 +50,21 @@ function toggleForm(action = 'add', index = null) {
     if (action === 'edit') {
         editingIndex = index;
         const cro = croData[index];
-        document.getElementById('siteCode').value = cro.name;
-        document.getElementById('siteName').value = cro.person;
+        document.getElementById('croName').value = cro.name;
+        document.getElementById('personName').value = cro.person;
         document.getElementById('email').value = cro.email;
         formTitle.textContent = 'Edit CRO';
         saveButton.textContent = 'Update';
     } else {
         editingIndex = null;
-        document.getElementById('siteCode').value = '';
-        document.getElementById('siteName').value = '';
+        document.getElementById('croName').value = '';
+        document.getElementById('personName').value = '';
         document.getElementById('email').value = '';
         formTitle.textContent = 'Add New CRO';
         saveButton.textContent = 'Save';
     }
 
-    formContainer.style.display = 'block';
-    window.scrollTo(0, 0); // Scroll to the top of the page
+    formContainer.style.display = formContainer.style.display === 'block' ? 'none' : 'block';
 }
 
 function saveCRO() {
