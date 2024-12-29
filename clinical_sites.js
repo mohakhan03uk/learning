@@ -1,32 +1,27 @@
-const croData = [
-    { name: "CRO1", person: "John Doe", email: "john@example.com", status: true },
-    { name: "CRO2", person: "Jane Smith", email: "jane@example.com", status: false },
-	{ name: "CRO3", person: "Smith", email: "jane@example.com", status: false },
-	{ name: "CRO4", person: "xyz Jane Smith", email: "jane@example.com", status: false },
-	{ name: "CRO5", person: "Jane fff Smith", email: "jane@example.com", status: false },
-	{ name: "CRO1", person: "John Doe", email: "john@example.com", status: true },
-    { name: "CRO2", person: "Jane Smith", email: "jane@example.com", status: false },
-	{ name: "CRO3", person: "Smith", email: "jane@example.com", status: false },
-	{ name: "CRO4", person: "xyz Jane Smith", email: "jane@example.com", status: false },
-	{ name: "CRO5", person: "Jane fff Smith", email: "jane@example.com", status: false },
+const siteData = [
+	{ siteCode: "site1", siteName: "Doe asd", 		email: "xyz@example.com", status: true },
+        { siteCode: "site2", siteName: "Smiths sd", 		email: "xyz@example.com", status: false },
+	{ siteCode: "site3", siteName: "sdssdsssd", 		email: "xyz@example.com", status: false },
+	{ siteCode: "site4", siteName: "ane Smith", 		email: "xyz@example.com", status: false },
+	{ siteCode: "site5", siteName: "fff Smith", 		email: "xyz@example.com", status: false },
 ];
 
 function loadTable() {
-    const tableBody = document.getElementById('croTable');
+    const tableBody = document.getElementById('siteTable');
     tableBody.innerHTML = ""; // Clear existing rows
-    croData.forEach((cro, index) => {
+    siteData.forEach((site, index) => {
         const row = `
             <tr>					
-                <td data-label="CRO's Name:">${cro.name}</td>
-                <td data-label="Name:">${cro.person}</td>
-                <td data-label="Email:">${cro.email}</td>
-                <td data-label="Status:">${cro.status ? "Active" : "Inactive"}</td>
+                <td data-label="Site Code:">${site.siteCode}</td>
+                <td data-label="Site Name:">${site.siteName}</td>
+                <td data-label="Email:">${site.email}</td>
+                <td data-label="Status:">${site.status ? "Active" : "Inactive"}</td>
                 <td class="edit-col">
-                    <button class="edit-btn" onclick="editCRO(${index})">Edit</button>
+                    <button class="edit-btn" onclick="editSITE(${index})">Edit</button>
 				</td>
 				<td class="toggle-status-col">
                     <button class="toggle-btn" onclick="toggleStatus(${index})">
-                        ${cro.status ? "Deactivate" : "Activate"}
+                        ${site.status ? "Deactivate" : "Activate"}
                     </button>
                 </td >
         <td class="show-col">
@@ -49,36 +44,36 @@ function toggleForm(action = 'add', index = null) {
 
     if (action === 'edit') {
         editingIndex = index;
-        const cro = croData[index];
-        document.getElementById('croName').value = cro.name;
-        document.getElementById('personName').value = cro.person;
-        document.getElementById('email').value = cro.email;
-        formTitle.textContent = 'Edit CRO';
+        const site = siteData[index];
+        document.getElementById('siteCode').value = site.siteCode;
+        document.getElementById('sireName').value = site.siteName;
+        document.getElementById('email').value = site.email;
+        formTitle.textContent = 'Edit Site';
         saveButton.textContent = 'Update';
     } else {
         editingIndex = null;
-        document.getElementById('croName').value = '';
-        document.getElementById('personName').value = '';
+        document.getElementById('siteCode').value = '';
+        document.getElementById('siteName').value = '';
         document.getElementById('email').value = '';
-        formTitle.textContent = 'Add New CRO';
+        formTitle.textContent = 'Add New Site';
         saveButton.textContent = 'Save';
     }
 
     formContainer.style.display = formContainer.style.display === 'block' ? 'none' : 'block';
 }
 
-function saveCRO() {
-    const name = document.getElementById('croName').value;
-    const person = document.getElementById('personName').value;
+function saveSITE() {
+    const name = document.getElementById('siteCode').value;
+    const person = document.getElementById('siteName').value;
     const email = document.getElementById('email').value;
 
     if (name && person && email) {
         if (editingIndex !== null) {
-            croData[editingIndex] = { name, person, email, status: croData[editingIndex].status };
-            showToast(`CRO ${name} updated successfully.`);
+            siteData[editingIndex] = { siteCode, siteName, email, status: siteData[editingIndex].status };
+            showToast(`Site ${name} updated successfully.`);
         } else {
-            croData.push({ name, person, email, status: true });
-            showToast(`CRO ${name} added successfully.`);
+            siteData.push({ name, person, email, status: true });
+            showToast(`Site ${name} added successfully.`);
         }
         loadTable();
         toggleForm();
@@ -87,15 +82,15 @@ function saveCRO() {
     }
 }
 
-function editCRO(index) {
+function editSITE(index) {
     toggleForm('edit', index);
 }
 
 
 function toggleStatus(index) {
-    croData[index].status = !croData[index].status;
+    siteData[index].status = !siteData[index].status;
     loadTable();
-    showToast(`CRO ${croData[index].name} is now ${croData[index].status ? 'Active' : 'Inactive'}`);
+    showToast(`Site ${siteData[index].name} is now ${siteData[index].status ? 'Active' : 'Inactive'}`);
 }
 
 
@@ -110,7 +105,7 @@ function showToast(message) {
 
 function filterTable() {
     const query = document.getElementById('searchBox').value.toLowerCase();
-    const rows = document.querySelectorAll('#croTable tr');
+    const rows = document.querySelectorAll('#siteTable tr');
 
     rows.forEach(row => {
         const cells = row.querySelectorAll('td');
