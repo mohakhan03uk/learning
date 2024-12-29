@@ -19,25 +19,102 @@
         <header>
             <h1>Super Admin Dashboard</h1>
         </header>
-        <div class="form-container" id="formContainer">
-            <h3 id="formTitle">Add New Sites</h3>
-            <div class="form-group">
-                <label for="siteCode">Code:</label>
-                <input type="text" id="siteCode" placeholder="Enter Site Code">
-            </div>
-            <div class="form-group">
-                <label for="siteName">Name:</label>
-                <input type="text" id="siteName" placeholder="Enter Site Name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email ID:</label>
-                <input type="email" id="email" placeholder="Enter email ID">
-            </div>
+ 
+      
+      
+      
+      
+ 
+      <div class="modal" id="formModal">
+    <div class="modal-content">
+        <h3 id="formTitle">Add New Site</h3>
+        <form id="siteForm">
+            <!-- Basics -->
+            <fieldset>
+                <legend>Basics</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="siteCode">Code:</label>
+                        <input type="text" id="siteCode" placeholder="Enter Site Code">
+                    </div>
+                    <div class="form-group">
+                        <label for="siteName">Name:</label>
+                        <input type="text" id="siteName" placeholder="Enter Site Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="legalSiteName">Legal Site Name:</label>
+                        <input type="text" id="legalSiteName" placeholder="Enter Legal Site Name">
+                    </div>
+                </div>
+            </fieldset>
+            <!-- Address -->
+            <fieldset>
+                <legend>Address</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="address1">Address 1:</label>
+                        <input type="text" id="address1" placeholder="Enter Address Line 1">
+                    </div>
+                    <div class="form-group">
+                        <label for="address2">Address 2:</label>
+                        <input type="text" id="address2" placeholder="Enter Address Line 2">
+                    </div>
+                    <div class="form-group">
+                        <label for="postCode">Post Code:</label>
+                        <input type="text" id="postCode" placeholder="Enter Post Code">
+                    </div>
+                </div>
+            </fieldset>
+            <!-- Communication -->
+            <fieldset>
+                <legend>Communication</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="officeTel">Office Tel:</label>
+                        <input type="tel" id="officeTel" placeholder="Enter Office Telephone">
+                    </div>
+                    <div class="form-group">
+                        <label for="extension">Extension:</label>
+                        <input type="text" id="extension" placeholder="Enter Extension">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile:</label>
+                        <input type="tel" id="mobile" placeholder="Enter Mobile Number">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website:</label>
+                        <input type="url" id="website" placeholder="Enter Website">
+                    </div>
+                </div>
+            </fieldset>
+            <!-- Notes -->
+            <fieldset>
+                <legend>Notes</legend>
+                <div class="form-group">
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" rows="4" placeholder="Enter Notes"></textarea>
+                </div>
+            </fieldset>
+            <!-- Actions -->
             <div class="form-actions">
-                <button class="save-btn" onclick="saveSITE()">Save</button>
-                <button class="cancel-btn" onclick="toggleForm()">Cancel</button>
+                <button type="button" class="save-btn" onclick="saveSITE()">Save</button>
+                <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
             </div>
-        </div>
+        </form>
+    </div>
+</div>
+
+      
+      
+      
+
+      
         <h2>Manage Clinical Sites</h2>
         <div class="actions">
             <input
