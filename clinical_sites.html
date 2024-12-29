@@ -19,37 +19,36 @@
         <header>
             <h1>Super Admin Dashboard</h1>
         </header>
-        <h2>Manage Clinical Sites</h2>
-     <div class="actions">
-    <input
-        type="text"
-        id="searchBox"
-        placeholder="Search..."
-        onkeyup="filterTable()"
-        class="search-box"
-    />
-    <button class="add-btn" onclick="toggleForm()">+ Add New Site</button>
-</div>
         <div class="form-container" id="formContainer">
-    <h3 id="formTitle">Add New Sites</h3>
-    <div class="form-group">
-        <label for="siteCode">Code:</label>
-        <input type="text" id="siteCode" placeholder="Enter Site Code">
-    </div>
-    <div class="form-group">
-        <label for="siteName">Name:</label>
-        <input type="text" id="siteName" placeholder="Enter Site Name">
-    </div>
-    <div class="form-group">
-        <label for="email">Email ID:</label>
-        <input type="email" id="email" placeholder="Enter email ID">
-    </div>
-    <div class="form-actions">
-        <button class="save-btn" onclick="saveCRO()">Save</button>
-        <button class="cancel-btn" onclick="toggleForm()">Cancel</button>
-    </div>
-</div>
-
+            <h3 id="formTitle">Add New Sites</h3>
+            <div class="form-group">
+                <label for="siteCode">Code:</label>
+                <input type="text" id="siteCode" placeholder="Enter Site Code">
+            </div>
+            <div class="form-group">
+                <label for="siteName">Name:</label>
+                <input type="text" id="siteName" placeholder="Enter Site Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" placeholder="Enter email ID">
+            </div>
+            <div class="form-actions">
+                <button class="save-btn" onclick="saveCRO()">Save</button>
+                <button class="cancel-btn" onclick="toggleForm()">Cancel</button>
+            </div>
+        </div>
+        <h2>Manage Clinical Sites</h2>
+        <div class="actions">
+            <input
+                type="text"
+                id="searchBox"
+                placeholder="Search..."
+                onkeyup="filterTable()"
+                class="search-box"
+            />
+            <button class="add-btn" onclick="toggleForm()">+ Add New Site</button>
+        </div>
         <table class="tbl">
             <thead>
                 <tr>
@@ -59,7 +58,6 @@
                     <th class="status">Status</th>
                     <th colspan=3 class="action">Action</th>
                 </tr>
-              
             </thead>
             <tbody id="croTable">
                 <!-- Rows will be dynamically populated -->
