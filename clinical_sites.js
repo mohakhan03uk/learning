@@ -46,7 +46,7 @@ function toggleForm(action = 'add', index = null) {
         editingIndex = index;
         const site = siteData[index];
         document.getElementById('siteCode').value = site.siteCode;
-        document.getElementById('sireName').value = site.siteName;
+        document.getElementById('siteName').value = site.siteName;
         document.getElementById('email').value = site.email;
         formTitle.textContent = 'Edit Site';
         saveButton.textContent = 'Update';
