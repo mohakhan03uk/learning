@@ -152,6 +152,14 @@ tr th {
     text-align: center;
     /* align-content: center; */
 }
+
+th.action {
+    width: 200px;
+}
+
+th.status {
+	width: 100px;
+}
 button {
     padding: 5px 10px;
     border: none;
