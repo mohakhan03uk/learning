@@ -373,6 +373,11 @@ td.edit-col, td.toggle-status-col, td.show-col {
     text-align: right;
   }
   
+  td.edit-col, td.toggle-status-col, td.show-col {
+    text-align: right;
+    width: auto; 
+}
+
   table td::before {
     /*
     * aria-label has no advantage, it won't be read inside a table
@@ -380,8 +385,12 @@ td.edit-col, td.toggle-status-col, td.show-col {
     */
     content: attr(data-label);
     float: left;
+    
     font-weight: bold;
     text-transform: uppercase;
+  }
+  table tr::before{
+    align: center;
   }
   
   table td:last-child {
