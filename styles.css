@@ -148,6 +148,10 @@ th {
 	text-transform: uppercase;
 }
 
+tr th {
+    text-align: center;
+    /* align-content: center; */
+}
 button {
     padding: 5px 10px;
     border: none;
