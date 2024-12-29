@@ -90,7 +90,7 @@ function editSITE(index) {
 function toggleStatus(index) {
     siteData[index].status = !siteData[index].status;
     loadTable();
-    showToast(`Site ${siteData[index].name} is now ${siteData[index].status ? 'Active' : 'Inactive'}`);
+    showToast(`Site ${siteData[index].siteName} is now ${siteData[index].status ? 'Active' : 'Inactive'}`);
 }
 
 
