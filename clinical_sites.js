@@ -63,17 +63,17 @@ function toggleForm(action = 'add', index = null) {
 }
 
 function saveSITE() {
-    const name = document.getElementById('siteCode').value;
-    const person = document.getElementById('siteName').value;
+    const siteCode = document.getElementById('siteCode').value;
+    const siteName = document.getElementById('siteName').value;
     const email = document.getElementById('email').value;
 
-    if (name && person && email) {
+    if (code && name && email) {
         if (editingIndex !== null) {
             siteData[editingIndex] = { siteCode, siteName, email, status: siteData[editingIndex].status };
-            showToast(`Site ${name} updated successfully.`);
+            showToast(`Site ${siteName} updated successfully.`);
         } else {
-            siteData.push({ name, person, email, status: true });
-            showToast(`Site ${name} added successfully.`);
+            siteData.push({ siteCode, siteName, email, status: true });
+            showToast(`Site ${siteName} added successfully.`);
         }
         loadTable();
         toggleForm();
